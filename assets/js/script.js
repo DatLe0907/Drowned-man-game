@@ -5,6 +5,7 @@ const wordDisplay = document.querySelector('.word-display'),
       modal = document.querySelector('.game__modal'),
       waterInPipe = document.querySelector('.water__in__pipe'),
       continueBtn = document.querySelector('.continue');
+      let check;
 let currentWord,
     wrongGuessCount,
     correctLetter = [];
@@ -45,6 +46,7 @@ function gameOver(isCompleted){
         modal.querySelector('h4').innerText = `${isCompleted ? 'Congratulation!': 'Game Over!'}`;
         modal.querySelector('p').innerHTML = `${modalText}<b>${currentWord}</b>`;
         modal.classList.add('show');
+        return check = isCompleted;
     }, 1000)
 }
 
@@ -113,10 +115,17 @@ document.addEventListener("keydown",function(e){
 })
 
 
-
+ 
 
 getRandomWord();
 continueBtn.addEventListener('click', function(){
     getRandomWord();
     modal.classList.remove('show')
+})
+
+document.addEventListener('keydown', function(e){
+    if(e.key === 'Enter' && (check === true || check ===false)){
+        getRandomWord();
+        modal.classList.remove('show')
+    }
 })
