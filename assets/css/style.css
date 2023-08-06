@@ -247,6 +247,7 @@ body {
     background-color: var(--primary-color);
     height: 0;
     width: 100%;
+    transition: 1s;
 }
 
 .game__box {

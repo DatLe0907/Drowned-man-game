@@ -60,20 +60,17 @@ function initGame(button, inputLetter){
     }
     else {
         wrongGuessCount++;
-            console.log(wrongGuessCount * 100/6)
             waterInPipe.style = `
             transition: 1s;
             height: ${165 - (wrongGuessCount * 100/6)}%;
         `
         setTimeout(function(){
-            console.log(wrongGuessCount * 100/6)
             water.style = `
             transition: 2s;
             height: ${wrongGuessCount * 100/6}%;
         `
         },1000);
         setTimeout(function(){
-            console.log(wrongGuessCount * 100/6)
             waterInPipe.style = `
             transition: 0s;
         height: 0%;
