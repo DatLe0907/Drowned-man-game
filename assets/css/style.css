@@ -7,14 +7,6 @@ html {
     --ratio: 80px
 }
 
-body {
-    min-height: 100vh;
-    background-color: var(--primary-color);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.6rem;
-}
 
 .btn {
     border: none;
@@ -27,6 +19,49 @@ body {
     color: #fff;
     cursor: pointer;
 }
+
+body {
+    min-height: 100vh;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6rem;
+    position: relative;
+}
+
+.heading{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.heading span {
+    padding-top: 5px;
+    color: #000;
+    font-size: 2rem;
+}
+
+.music__play {
+    margin-right: 10px;
+
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #F1F3F4;
+    border: #fff 1px solid;
+}
+
+.music__play audio {
+    margin-top: -5px;
+    margin-left: -3px;
+    background-color: #F1F3F4;
+}
+
 
 .container {
     overflow: hidden;
@@ -312,6 +347,7 @@ body {
     align-items: center;
     display: none;
     transition: 0.4s ease;
+    z-index: 9999;
 }
 
 .game__modal.show {
