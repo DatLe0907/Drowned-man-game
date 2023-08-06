@@ -1,0 +1,340 @@
+html {
+    font-size: 62.5%;
+}
+
+:root {
+    --primary-color: #47D5F3cd;
+    --ratio: 80px
+}
+
+body {
+    min-height: 100vh;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    background-color: var(--primary-color);
+    color: #fff;
+    cursor: pointer;
+}
+
+.container {
+    background-color: #fff;
+    padding: 60px 40px;
+    gap: 70px;
+    width: 850px;
+    display: flex;
+    align-items: flex-end;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.drowned-man__box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 750px;
+    height: 300px;
+    position: relative;
+    border-style: solid;
+    border-width: 5px;
+    border-color: #fff #000 #000 #000;
+}
+
+.drowned-man__box::after {
+    position: absolute;
+    top: 105%;
+    font-size: 2.3rem;
+    font-weight: 600;
+    content: 'Drowned man';
+    text-transform: uppercase;
+}
+
+.box__container {
+    min-width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.box__chain {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.box__chain:last-child{
+    align-items: flex-end;
+}
+
+.box__chain  img {
+    width:115px;
+}
+
+.box__stick-man{
+    padding-top: 15px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+}
+.stick-man__head{
+    width: calc(var(--ratio) / 1.5);
+    height: calc(var(--ratio) / 1.5);
+    background-color: #000;
+    border-radius: 50%;
+}
+.stick-man__body{
+    display: flex;
+    position: relative;
+}
+.left-arm{
+    position: absolute;
+    left: 100%;
+    top: -65%;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    display: block;
+    width: calc(var(--ratio) / 3);
+    height: var(--ratio);
+    background-color: #000;
+    transform: rotate(45deg);
+}
+.right-arm{
+    position: absolute;
+    right: 100%;
+    top: -65%;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: block;
+    width: calc(var(--ratio) / 3);
+    height: var(--ratio);
+    background-color: #000;
+    transform: rotate(-45deg);
+}
+
+.lumbar-spine {
+    width: calc(var(--ratio) / (3/2));
+    height: calc(var(--ratio) - 20px);
+    background-color: #000;
+}
+
+.stick-man__foot{
+    display: flex;
+}
+
+.right-leg {
+    border-bottom-right-radius: 10px;
+
+    display: block;
+    width: calc(var(--ratio) / 3);
+    height: var(--ratio);
+    background-color: #000;
+    transform: rotate(35deg);
+}
+
+.pelvis {
+    width: calc(var(--ratio) / 3);
+    height: calc(var(--ratio) / 3);
+    background-color: #000;
+    position: relative;
+    text-align: center;
+}
+
+.pelvis::before {
+    position: absolute;
+    transform: translateX(-50%);
+    content: '';
+    width: calc(var(--ratio) / 1.5);
+    height: calc(var(--ratio) / 3);
+    background-color: #000;
+}
+
+.left-leg {
+    border-bottom-left-radius: 10px;
+    display: block;
+    width: calc(var(--ratio) / 3);
+    height: var(--ratio);
+    background-color: #000;
+    transform: rotate(-35deg);
+}
+
+.box__water{
+    width: 100%;
+    height: 240px;
+    position: absolute;
+    align-self: flex-end;
+}
+
+.water {
+    position: absolute;
+    bottom: 0;
+    background-color: var(--primary-color);
+    height: 0;
+    width: 100%;
+    transition: 1s;
+}
+
+.game__box {
+    min-width: 40%;
+}
+
+.word-display {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    padding-left: 0;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.word-display .letter{
+    width: 28px;
+    font-size: 2.8rem;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    border-bottom: 3px solid #000;
+}
+
+.word-display .letter.guessed {
+    border-color: transparent;
+    margin: -40px 0 35px;
+}
+
+.game__box h4 {
+    text-align: center;
+    font-size: 1.7rem;
+    font-weight: 500;
+    margin: 0 0 15px 0;
+}
+
+.game__box h4 b {
+    font-weight: 600;
+}
+
+.game__box .guesses-text b {
+    color: #ff0000;
+}
+
+.game__box .keyboard {
+    margin-top: 40px;
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.keyboard button {
+    width: calc(100% / 9 - 5px);
+    padding: 6px 12px;
+}
+
+.keyboard button[disabled] {
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.btn:hover {
+    opacity: 0.7;
+}
+
+/* Modal */
+
+@keyframes fadeOut {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes boxGrown {
+    from{
+        transform: scale(0);
+    }
+    to{
+        transform: scale(1);
+    }
+}
+
+.game__modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    transition: 0.4s ease;
+}
+
+.game__modal.show {
+    display: flex;
+}
+
+.modal__overlay {
+    background: rgba(0, 0, 0, 0.2);
+    width: 100%;
+    height: 100%;
+    transition: 1s;
+    animation: fadeOut 0.3s linear;
+}
+
+.modal__content {
+    position: absolute;
+    background-color: #fff;
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    border-radius: 10px;
+    padding: 30px;
+    animation: boxGrown 0.4s linear;
+
+}
+
+.modal__content img {
+    max-width: 130px;
+    object-fit: contain;
+}
+
+.modal__content h4 {
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.modal__content p {
+    font-size: 2.6rem;
+    margin: 15px 0 30px;
+}
+
+.modal__content p b {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.modal__content button {
+    padding: 12px 30px;
+}

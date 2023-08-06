@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drowned man</title>
+    <link rel="stylesheet" href="./assets/css/normalize.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="game__modal">
+        <div class="modal__overlay"></div>
+        <div class="modal__content">
+          <img src="" alt="" />
+          <h4>Game Over!</h4>
+          <p>The correct word was: <b>${word}</b></p>
+          <button class="continue btn">Continue</button>
+        </div>
+      </div>
+      <div class="drowned-man__box">
+        <div class="box__container">
+          <div class="box__chain">
+            <img
+              src="./assets/img/chain.png"
+              alt=""
+              style="transform: rotate(90deg)"
+            />
+            <img
+              src="./assets/img/chain.png"
+              alt=""
+              style="transform: rotate(20deg); margin-bottom: -26px"
+            />
+          </div>
+          <div class="box__stick-man">
+            <div class="stick-man__head"></div>
+            <div class="stick-man__body">
+              <span class="left-arm"></span>
+              <div class="lumbar-spine"></div>
+              <span class="right-arm"></span>
+            </div>
+            <div class="stick-man__foot">
+              <span class="right-leg"></span>
+              <div class="pelvis"></div>
+              <span class="left-leg"></span>
+            </div>
+          </div>
+          <div class="box__chain">
+            <img
+              src="./assets/img/chain.png"
+              alt=""
+              style="transform: rotate(0deg)"
+            />
+            <img
+              src="./assets/img/chain.png"
+              alt=""
+              style="transform: rotate(70deg); margin-bottom: -26px"
+            />
+          </div>
+        </div>
+        <div class="box__water">
+          <div class="water"></div>
+        </div>
+      </div>
+      <div class="game__box">
+        <ul class="word-display"></ul>
+        <h4 class="hint-text">
+          Hint:
+          <b>Lorem ipsum dolor sit amet consectetur adipisicing elit.</b>
+        </h4>
+        <h4 class="guesses-text">
+          Incorect guesses:
+          <b>0 / 6</b>
+        </h4>
+        <div class="keyboard"></div>
+      </div>
+    </div>
+    <iframe
+      src="./assets/audio/silence.mp3"
+      allow="autoplay"
+      id="audio"
+      style="display: none"
+    ></iframe>
+    <audio id="player" preload="auto" autoplay loop>
+      <source
+        src="./assets/audio/Quiz Background Music 6 Arcade Style No Copyright.mp3"
+        type="audio/mp3"
+      />
+    </audio>
+    <script src="./assets/js/word-list.js" defer></script>
+    <script src="./assets/js/script.js" defer></script>
+  </body>
+</html>
