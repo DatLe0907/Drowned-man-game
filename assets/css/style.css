@@ -13,6 +13,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 1.6rem;
 }
 
 .btn {
@@ -28,6 +29,7 @@ body {
 }
 
 .container {
+    overflow: hidden;
     background-color: #fff;
     padding: 60px 40px;
     gap: 70px;
@@ -39,9 +41,11 @@ body {
 }
 
 .drowned-man__box{
+    position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
+    flex-direction: column;
     width: 750px;
     height: 300px;
     position: relative;
@@ -57,6 +61,27 @@ body {
     font-weight: 600;
     content: 'Drowned man';
     text-transform: uppercase;
+}
+
+.box__pipe{
+    position: absolute;
+    bottom: 90%;
+    right: 85%;
+}
+
+.box__pipe img {
+    width: 200px
+}
+
+.water__in__pipe {
+    position: absolute;
+    display: block;
+    background: #47D5F3aa;
+    right: 17px;
+    top: 169px;
+    width: 12px;
+    height: 0%;
+    z-index: 2;
 }
 
 .box__container {
@@ -80,7 +105,7 @@ body {
 }
 
 .box__chain  img {
-    width:115px;
+    width:110px;
 }
 
 .box__stick-man{
@@ -187,7 +212,6 @@ body {
     background-color: var(--primary-color);
     height: 0;
     width: 100%;
-    transition: 1s;
 }
 
 .game__box {
@@ -240,16 +264,15 @@ body {
     display: flex;
     gap: 5px;
     flex-wrap: wrap;
-    justify-content: center;
 }
 
 .keyboard button {
     width: calc(100% / 9 - 5px);
-    padding: 6px 12px;
+    padding: 7px 10px;
 }
 
 .keyboard button[disabled] {
-    opacity: 0.6;
+    opacity: 0;
     pointer-events: none;
 }
 

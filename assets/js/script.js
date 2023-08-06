@@ -3,7 +3,8 @@ const wordDisplay = document.querySelector('.word-display'),
       guessesText = document.querySelector('.guesses-text b'),
       water = document.querySelector('.water'),
       modal = document.querySelector('.game__modal'),
-      continueBtn = document.querySelector('.continue')
+      waterInPipe = document.querySelector('.water__in__pipe'),
+      continueBtn = document.querySelector('.continue');
 let currentWord,
     wrongGuessCount,
     correctLetter = [];
@@ -47,10 +48,10 @@ function gameOver(isCompleted){
     }, 1000)
 }
 
-function initGame(button, clickedLetter){
-    if(currentWord.includes(clickedLetter)){
+function initGame(button, inputLetter){
+    if(currentWord.includes(inputLetter)){
         [...currentWord].forEach(function(letter, index){
-            if(letter === clickedLetter){
+            if(letter === inputLetter){
                 correctLetter.push(letter)
                 wordDisplay.querySelectorAll('li')[index].innerText = letter
                 wordDisplay.querySelectorAll('li')[index].classList.add('guessed')
@@ -59,14 +60,33 @@ function initGame(button, clickedLetter){
     }
     else {
         wrongGuessCount++;
-        water.style = `
+            console.log(wrongGuessCount * 100/6)
+            waterInPipe.style = `
+            transition: 1s;
+            height: ${165 - (wrongGuessCount * 100/6)}%;
+        `
+        setTimeout(function(){
+            console.log(wrongGuessCount * 100/6)
+            water.style = `
+            transition: 2s;
             height: ${wrongGuessCount * 100/6}%;
         `
+        },1000);
+        setTimeout(function(){
+            console.log(wrongGuessCount * 100/6)
+            waterInPipe.style = `
+            transition: 0s;
+        height: 0%;
+        `
+        },2500);
+
+
+
 
     }
     guessesText.innerText = `${wrongGuessCount} / ${maxGuesses}`;
     button.disabled = true;
-    if(wrongGuessCount === maxGuesses){
+    if(wrongGuessCount === maxGuesses || water.style === `height: 100%;`){
         gameOver(false)
     }
     if(correctLetter.length === currentWord.length){
@@ -75,7 +95,7 @@ function initGame(button, clickedLetter){
 }
 
 // Create letter btn & add event listen
-for(let i = 97; i < 122; i++ ){
+for(let i = 97; i < 123; i++ ){
     const button = document.createElement('button')
     button.classList.add('btn');
     button.innerHTML = String.fromCharCode(i)
@@ -84,6 +104,20 @@ for(let i = 97; i < 122; i++ ){
         initGame(e.target, String.fromCharCode(i))
     })
 }
+
+let btnList = document.querySelectorAll('.keyboard button')
+
+document.addEventListener("keydown",function(e){
+    btnList.forEach(function(btn){
+        if(btn.innerText === e.key.toUpperCase()){
+            initGame(btn, e.key)
+        }
+    })
+})
+
+
+
+
 getRandomWord();
 continueBtn.addEventListener('click', function(){
     getRandomWord();

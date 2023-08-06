@@ -6,8 +6,21 @@
     <title>Drowned man</title>
     <link rel="stylesheet" href="./assets/css/normalize.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/responsive.css">
   </head>
   <body>
+    <iframe
+    src="./assets/audio/silence.mp3"
+    allow="autoplay"
+    id="audio"
+    style="display: none"
+  ></iframe>
+  <audio id="player" preload="auto" autoplay loop>
+    <source
+      src=""
+      type="audio/mp3"
+    />
+  </audio>
     <div class="container">
       <div class="game__modal">
         <div class="modal__overlay"></div>
@@ -19,6 +32,10 @@
         </div>
       </div>
       <div class="drowned-man__box">
+        <div class="box__pipe">
+          <img src="./assets/img/pipe.png" alt="">
+          <div class="water__in__pipe"></div>
+        </div>
         <div class="box__container">
           <div class="box__chain">
             <img
@@ -75,18 +92,6 @@
         <div class="keyboard"></div>
       </div>
     </div>
-    <iframe
-      src="./assets/audio/silence.mp3"
-      allow="autoplay"
-      id="audio"
-      style="display: none"
-    ></iframe>
-    <audio id="player" preload="auto" autoplay loop>
-      <source
-        src="./assets/audio/Quiz Background Music 6 Arcade Style No Copyright.mp3"
-        type="audio/mp3"
-      />
-    </audio>
     <script src="./assets/js/word-list.js" defer></script>
     <script src="./assets/js/script.js" defer></script>
   </body>
