@@ -1,6 +1,8 @@
     const main = document.getElementById('main');
     const themeSong = new Audio('./assets/audio/themesong.mp3');
     const waterSplash = new Audio('./assets/audio/water-splash.mp3');
+    const success = new Audio('./assets/audio/success.mp3');
+    const wrong = new Audio('./assets/audio/wrong.mp3');
 
   // Nhấn vào start btn -> chạy nhạc và bắt đầu chạy game
   let startButton = document.querySelector(".start-game");
@@ -149,13 +151,13 @@
           if(wrongGuessCount <= maxGuesses){
             waterInPipe.style = `
             transition: 1s;
-            height: ${ boxHeight - (wrongGuessCount * 100/(maxGuesses - 1))}px;
+            height: ${ boxHeight - (wrongGuessCount * 100/maxGuesses)}px;
         `
         setTimeout(function(){
             waterSplash.play()
             water.style = `
             transition: 2s;
-            height: ${wrongGuessCount * 100/(maxGuesses - 1)}%;
+            height: ${wrongGuessCount * 100/(maxGuesses)}%;
         `
         },1000);
         setTimeout(function(){
@@ -173,10 +175,12 @@
       guessesText.innerText = `${wrongGuessCount} / ${maxGuesses}`;
       button.disabled = true;
       if(wrongGuessCount === maxGuesses || water.style === `height: 100%;`){
-          gameOver(false)
+          gameOver(false);
+          wrong.play();
       }
       if(correctLetter.length === currentWord.length){
-          gameOver(true)
+          gameOver(true);
+          success.play();
       }
   }
   
